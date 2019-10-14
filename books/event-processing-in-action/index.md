@@ -20,4 +20,4 @@ we use definitions that are consistent with the terminology established by the E
 - Chapter 10 surveys implementation issues, both engineering aspects, such as scalability, and software engineering aspects, such as programming style and
 development tools.
 - Chapter 11 surveys some of the semantic challenges that developers and users of event processing systems should be aware of, in order to avoid anomalies when building event processing applications.
-- Chapter 12 discusses emerging trends and technology directions in the area of event processing. 
+- Chapter 12 discusses emerging trends and technology directions in the area of event processing.

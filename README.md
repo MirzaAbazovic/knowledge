@@ -1,8 +1,9 @@
-# Knowledge
+# Books, Videos, Blogs, Podcast - you name it :)
 
-Books, Videos, Blogs, Podcast - you name it :)
+## [VoIP](voip/index.md)
 
-## Categories
+### [Event processing in action](books/event-processing-in-action/index.md)
 
-### [VoIP](voip/index.md)
+### [.NET Microservices Architecture e-book](books/ms-microservices/index.md)
 
+https://dotnet.microsoft.com/download/thank-you/microservices-architecture-ebook
