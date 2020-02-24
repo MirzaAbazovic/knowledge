@@ -65,4 +65,44 @@ Instead **we want more responsible Teams by having less (fewer) roles,we want mo
 
 **Whole-product focus** — One Product Backlog, one Product Owner, one shippable product, one Sprint—regardless if 3 or 33 teams. Customers want valuable functionality in a cohesive product, not technical components in separate parts.
 
+**Customer-centric — Focus** on learning the customers real problems and solving those. Identify value and waste in the eyes of the paying customers. Reduce wait time from their perspective. Increase and strengthen feedback loops with real customers. Everyone understands how their work today directly relates to and benefits paying customers.
 
+**Continuous improvement towards perfection** — Here’s a perfection goal: Create and deliver a product almost all the time, at almost no cost, with no defects, that delights customers, improves the environment, and makes lives better. Do endless humble and radical improvement experiments toward that goal.
+
+**Lean thinking** — Create an organizational system whose foundation is **managers-as-teachers who apply and teach lean thinking**, manage to improve, promote stop-and-fix, and who practice Go See. Add the two pillars of respect for people and continuous challenge-the-status-quo improvement mindset. All towards the goal of perfection.
+
+**Systems thinking** — **See, understand, and optimize the whole system** (not parts), and use systems modeling to explore system dynamics. Avoid the local sub-optimizations of focusing on the efficiency or productivity of individuals and individual teams. Customers care about the overall concept-to-cash cycle time and flow, not individual steps, and locally optimizing a part almost always sub-optimizes the whole.
+
+**Empirical process control** — Continually inspect and adapt the product, processes, behaviors, organizational design, and practices to evolve in situationally-appropriate ways. Do that, rather than follow a prescribed set of so-called best practices that ignore context, create ritualistic following, impede learning and change, and squash people’s sense of engagement and ownership.
+
+**Queuing theory** — Understand how systems with queues behave in the R&D domain, and apply those insights to managing queue sizes, work-in-progress limits, multitasking, work packages, and variability.
+
+Large-Scale Scrum has two frameworks:
+- LeSS. 2–8 Teams
+- LeSS Huge. 8+ Teams
+
+In any event, at some point, 
+1. the single Product Owner can no longer grasp an overview of the entire product, 
+2. the Product Owner can’t balance an external and internal focus, and 
+3. the Product Backlog is so large that it becomes difficult for one person to work with. When the group hits that tipping point, 
+
+it may be time to change from the smaller LeSS framework to LeSS Huge. On the other hand, we suggest first trying to get better, smaller, and simpler, before getting huger.
+
+
+Common Across the Frameworks The LeSS and LeSS Huge frameworks share common elements:
+- one Product Owner and one Product Backlog
+- one common Sprint across all teams
+- one shippable product increment
+ 
+ 
+## LeSS Framework
+
+The smaller LeSS framework is **for one (and only one) Product Owner** who owns the product, and who manages **one Product Backlog** worked on by teams in **one common Sprint**, optimizing for the whole product. The LeSS framework elements are about the same as one-team Scrum:
+
+Roles—One Product Owner, two to eight Teams, a Scrum Master for one to three Teams. Crucially, these Teams are feature teams—true cross-functional and cross-component full-stack teams that work together in a shared code environment, each doing everything to create done items.
+
+Artifacts—One potentially shippable product increment, one Product Backlog, and a separate Sprint Backlog for each Team.
+
+Events—One common Sprint for the whole product; it includes all teams and ends in one potentially shippable product increment.
+
+Rules & Guides—Rules for a barely sufficient scaling framework for empirical process control and whole-product focus. Guides may help.
