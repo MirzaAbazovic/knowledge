@@ -1,0 +1,13 @@
+POST https://hooks.slack.com/workflows/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
+Content-Type: application/json
+
+{"link":"https://dm.ib-inet.com/appInstanceLog/serverId/22901/applicationId/1320/applicationInstanceId/20554/file/get/inline?file=/var/log/infobip-voice-contact-center/output.log" }
+
+###
+
+POST https://hooks.slack.com/workflows/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
+Content-Type: application/json
+
+{"link":"google.com"}
+
+###
