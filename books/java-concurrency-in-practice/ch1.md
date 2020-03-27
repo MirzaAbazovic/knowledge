@@ -42,6 +42,90 @@ One thread for all using non blocking I/O (server side javascript - node)
 
 Maybe truth is in the middle -> 
 some hybrid model: multi-threaded with single thread for set of requests (users) in combination with non blocking I/O (VErtex)
-   
- 
+
+Modern GUI frameworks, such as the AWT and Swing toolkits, replace the main event loop with an event dispatch thread (EDT).
+
+Most GUI frameworks are single-threaded subsystems, so the main event loop is effectively still present, but it runs in its own thread under the control of the GUI toolkit rather than the application.
+
+If, the long-running task is executed ina separate thread, the event thread remains free to process UI events, making the UI more responsive.
+
+### Safety hazards
+
+When threads were more esoteric, concurrency was an “advanced” topic; now, mainstream developers must be aware of thread-safety issues.
+
+```java
+@NotThreadSafe
+public class UnsafeSequence {
+    private int value;
+    /** Returns a unique value. */
+    public int getNext() {
+    return value++;
+    }
+}
+```
+
+The increment notation, someVariable++ , may appear to be a single operation, but is in fact three separate operations: read the value, add one to it, and write out the new value.
+
+Operations in multiple threads may be arbitrarily interleaved by the runtime, it is possible for two threads to read the value at the same time, both see the same value, and then both add one to it.
+The result is that the same sequence number is returned from multiple calls in different threads.
+
+If a class is annotated with @ThreadSafe , users can use it with confidence in a multithreaded environment, maintainers are put on notice that it makes thread safety guarantees that must be preserved, and software analysis tools can identify possible coding errors.
+
+Common concurrency hazard is **race condition**.
+
+Because threads share the same memory address space and run concurrently, they can access or modify variables that other threads might be using.
+
+This is a **tremendous convenience**, because it makes **data sharing much easier** than would other inter-thread communications mechanisms. But it is also a **significant risk**: threads can be confused by having **data change unexpectedly/unpredictably**.
+
+Allowing **multiple threads** to access and modify the same variables **introduces an element of nonsequentiality into** an otherwise **sequential programming model**, which can be confusing and **difficult to reason about**.
+
+Java provides synchronization mechanisms to coordinate such access.
+Making getNext a synchronized method.
+
+```java
+@ThreadSafe
+public class Sequence {
+    @GuardedBy("this")
+    private int value;
+
+    public synchronized int getNext() {
+        return value++;
+        }
+}
+```
+
+Compiler, hardware, and runtime are allowed to take substantial liberties with the timing and ordering of actions, such as caching variables in registers or processor-local caches where they are temporarily (or even permanently) invisible to other threads.
+
+### Liveness hazards
+
+When developing concurrent code: **safety cannot be compromised**.
+Use of threads introduces additional safety hazards not present in single-threaded programs and introduces additional forms of **liveness failure** that do not occur in single-threaded programs
+
+While safety means "nothing bad ever happens", liveness concerns the complementary goal that "something good eventually happens".
+
+A liveness failure occurs when an activity gets into a state such that it is permanently unable to make forward progress. In single-threaded programs inifinite loop is example of liveness failure in multi-threaded programs some forms of liveness failures are:
+- deadlock
+- starvation
+- livelock
+
+Most concurrency bugs that cause liveness failures, do not always manifest themselves in development or testing.
+
+### Performace hazards
+
+While liveness means that something good eventually happens, eventually may not be good enough - we often want good things to happen quickly
+Performance issues subsume a broad range of problems including poor service time, responsiveness, throughput, resource consumption, or scalability.
+
+Context switches are more frequent in applications with many threads, and have significant costs: saving and restoring execution context, loss of locality, and CPU time spent scheduling threads instead of running them
+
+When threads share data, they must use synchronization mechanisms that can  compiler optimizations, flush or invalidate memory caches, and create synchronization traffic on the shared memory bus.
+
+
+## Threads are everywhere
+
+Every Java application uses threads. When the JVM starts, it creates threads for JVM housekeeping tasks (garbage collection, finalization) and a main thread for running the main method.
+
+The AWT (Abstract Window Toolkit) and Swing user interface frameworks create threads for managing user interface events.
+
+Timer creates threads for executing deferred tasks. Component frameworks, such as servlets and RMI create pools of threads and invoke component methods in these threads.
+
 [home](index.md)
