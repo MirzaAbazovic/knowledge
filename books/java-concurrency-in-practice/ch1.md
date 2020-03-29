@@ -11,11 +11,22 @@ There are low-level mechanisims and design-level policies.
 "The language provides low-level mechanisms such as synchronization and condition waits, but these
 mechanisms must be used consistently to implement application-level protocols or policies."
 
+When we say - "multiple tasks are executing at the same time", what we actually mean is that "multiple tasks are making progress during the same period of time."
+
+The tasks are executed in an interleaved manner. The operating system switches between the tasks so frequently that it appears to the users that they are being executed at the same physical instant.
+
+Therefore, Concurrency does not mean Parallelism. In fact, Parallelism is impossible on a single processor system.
+
 "To address the abstraction mismatch between Java’s low-level mechanisms and the necessary design-level policies, we present a simplified set of rules for writing concurrent programs."
 
 Threads are the easiest way to tap the computing power of multiprocessor systems.
 
+Every process has at least one thread - called the main thread. The main thread can create additional threads within the process.
+
+Threads within a process share the process’s resources including memory and open files. However, every thread has its own call stack. Since threads share the same address space of the process, creating new threads and communicating between them is more efficient.
+
 Motivations for simultaneous processes and threads (aka lightweight process) also are:
+
 - Resource utilisation (Give process that can do work resource.)
 - Fairness (Users and programs share resources by time slicing.)
 - Convenience (More programs coordinated instead one.)
@@ -24,16 +35,26 @@ Difference between processes and threads are that threads share process-wide res
 but each thread has his own program counter, stack and local variables. 
 Processes communicate using sockets, signal handlers, shared memory, semaphores and files.  
 Threads exploit hardware parallelism on multi proc. sys. -> multiple threads can be scheduled simultaneously on multiple CPUs.
+
 Threads are basic unit of scheduling and are executing simultaneously or asynchronously.
 Threads have same variables and allocate objects from the same heap.
 
-Sequential programming is intuitive and natural. 
+Unit of concurrency:
+
+Concurrency is a very broad term, and it can be used at various levels. For example:
+
+- Multiprocessing - Multiple Processors/CPUs executing concurrently. The unit of concurrency here is a CPU.
+- Multitasking - Multiple tasks/processes running concurrently on a single CPU. The operating system executes these tasks by switching between them very frequently. The unit of concurrency, in this case, is a Process.
+- Multithreading - Multiple parts of the same program running concurrently. In this case, we go a step further and divide the same program into multiple parts/threads and run those threads concurrently.
+
+
+Sequential programming is intuitive and natural.
 Finding the right balance of sequentiality and asyncrony is often characteristic of efficient programs.
  
 Since the basic unit of scheduling is thread on 2 CPU single-threaded program is giving up 50% of resources.
 Even on single CPU multi-threaded program achieve better throughput by not waiting for blocking I/O operations.
 
-Group jobs in similar/same batches and execute them 
+Group jobs in similar/same batches and execute them.
 
 Single threaded non-blocking I/O vs Multi-threading (MT)
 

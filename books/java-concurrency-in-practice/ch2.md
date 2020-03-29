@@ -11,6 +11,15 @@ by **mutable**, we mean that its value could change during its lifetime.
 
 Making an object thread-safe requires using synchronization to coordinate access to its mutable state.
 
+Two types of problems arise when multiple threads try to read and write shared data concurrently
+
+1. Thread interference errors (Race conditions)
+2. Memory consistency errors 
+
+When multiple threads share the same memory, there is a chance that two or more different threads performing different operations on the same data interleave with each other and create inconsistent data in the memory.
+
+In multithreading, there can be possibilities that the changes made by one thread might not be visible to the other threads and they all have inconsistent views of the same shared data. This is known as memory consistency error.
+
 The primary mechanism for synchronization in Java is the **synchronized** keyword, which provides exclusive locking, but the term “synchronization” also includes the use of **volatile variables**, **explicit locks**, and **atomic variables**.
 
 If multiple threads access the same mutable state variable without appropriate synchronization, your program is broken. There are three ways to fix it:

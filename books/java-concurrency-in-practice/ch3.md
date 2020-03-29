@@ -45,9 +45,6 @@ Attempts to reason about the order in which memory actions “must” happen in 
 
 Easy way to **avoid these complex issues**: **always use the proper synchronization whenever data is shared across threads**.
 
-
-
-
 ## Publication and escape
 
 ## Thread Confinement
