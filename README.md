@@ -7,3 +7,5 @@
 ### [.NET Microservices Architecture e-book](books/ms-microservices/index.md)
 
 https://dotnet.microsoft.com/download/thank-you/microservices-architecture-ebook
+
+### [LeSS Large-Scale Scrum](books/Large-Scale_Scrum/index.md)
